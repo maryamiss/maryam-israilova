@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    <style>
+body{
+font-family: Arial;
+background-color: blueviolet;
+text-align: center;
+}
+.kutu{
+    width: 350px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid red;
+    border: radius 10px;
+}
+input{
+    padding: 8px;
+    width: 70%;
+}
+button{
+    padding: 8px 12px;
+    margin-top: 10px;
+}
+#liste{
+    margin: top 20px;
+    border-top:1px solid gray;
+}
+.item{
+    border:1px solid #bb1e1e;
+    padding: 8px;
+    margin:5px;
+    background:#e9f3ff;
+}
+
+
+    </style>
+    
+</head>
+<body>
+
+  <p id="borsa"></p>
+    <div class="kutu">
+<h2>AMP11B PROJE ÖRNEĞİ</h2>
+<input type="text" id="veri" placeholder="isim giriniz"> <br>
+<button onclick="ekle()">EKLE</button>
+<button onclick="listele()">LİSTELE</button><br>
+<button onclick="sil()">SİL</button>
+<input type="text" id="sl" placeholder=" değişecek ismi girin"> <br>
+<input type="text" id="slp" placeholder=" yeni ismi girin"> <br>
+<div id="liste"></div>
+    </div>
+    <script>
+var dizi=[];
+function ekle(){
+    var deger=document.getElementById("veri").value;
+    dizi.push(deger);
+    document.getElementById("veri").value="";
+}
+function listele(){
+    var sonuc="";
+    for(var i=0;i<dizi.length;i++)
+{
+   sonuc=sonuc+"<div class='item'>" +dizi[i]+"</div>"
+}
+document.getElementById("liste").innerHTML=sonuc;
+}
+
+function sil()
+{
+  
+  var deger=document.getElementById("sl").value;
+ for(var i=0;i<dizi.length;i++)   if(deger==dizi[i]) dizi[i]="";
+
+
+ var sonuc="";
+    for(var i=0;i<dizi.length;i++)
+{
+    if(deger!=dizi[i]) sonuc=sonuc+"<div class='item'>" +dizi[i]+"</div>"
+}
+document.getElementById("liste").innerHTML=sonuc;
+}
+
+    </script>
+ 
+</body>
+</html>
